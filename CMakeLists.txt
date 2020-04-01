@@ -82,6 +82,7 @@ add_library(${PROJECT_NAME}
   src/progress_logger.cpp
   src/kdl_helper.cpp
   src/trajectory_visualizer.cpp
+  src/grasp_matrix.cpp
   include/kdl_control_tools/trajectory.h
   include/kdl_control_tools/multi_robot_trajectory.h
 )
