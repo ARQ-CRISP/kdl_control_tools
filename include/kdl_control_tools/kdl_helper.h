@@ -1,7 +1,7 @@
 // Copyright (C) 2020  CRISP, Queen Mary University of London
 // This code is licensed under the BSD 3-Clause license (see LICENSE for details)
 
-
+#include <vector>
 #include <deque>
 
 #include <kdl/jntarray.hpp>
