@@ -18,7 +18,7 @@ void GraspMatrix::updateRelativePositions(const vector<KDL::Vector> relative_pos
 {
   for(int i=0; i<m_; i++){
     G_.block(3, 6*i, 3, 3) = -skewSymmetricMatrix(relative_positions[i]);
-    G_inv_.block(6*i, 0, 3, 3) = skewSymmetricMatrix(relative_positions[i]);
+    G_inv_.block(3+(6*i), 0, 3, 3) = (1.0 / m_) * skewSymmetricMatrix(relative_positions[i]);
   }
 }
 /*********************************************************************
@@ -65,6 +65,7 @@ void GraspMatrix::createInverseGraspMatrix(const vector<KDL::Vector>& r)
   G_inv_.resize(6*m_, 6);
   for(int i=0; i<m_; i++)
     G_inv_.block(i*6, 0, 6, 6) = wrenchTransformMatrix(-r[i]);
+  G_inv_ = (1.0 / m_) * G_inv_;
 }
 /*********************************************************************
 * Forward transform
